@@ -2,12 +2,13 @@
 <html>
   <body>
     <div class="navbar">
-      <h1>
-        Welcome to {{title}}
-      </h1>
+      <app-navbar></app-navbar>
+    </div>
+    <div class="titlebar">
+      <h2>Welkom bij The Beartender</h2>
     </div>
   <div class="main">
-    <app-cocktailbox></app-cocktailbox>
+    <router-outlet></router-outlet>
   </div>
 </body>
 </html> 
