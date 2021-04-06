@@ -1,0 +1,22 @@
+body, html{
+    margin:0;
+    padding:0;
+    height: 100%;
+    width: 100%;
+    background-color: #101010;
+    font-size: 20pt;
+  }
+
+.bannerimage{
+    width: 100%;
+}
+
+h2{
+  padding-left: 75px;
+}
+
+p{
+  padding: 30px;
+  width: 30%;
+  text-align: center;
+}

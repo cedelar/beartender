@@ -1,0 +1,15 @@
+<h2>{{cocktailbox.name}}</h2>
+<div class="row">
+    <div class="column">
+        <h3>{{cocktailbox.choicetitle}}</h3>
+        <li *ngFor="let cocktail of cocktailbox.choices">
+            {{cocktail}}
+        </li>
+    </div>
+    <div class="column">
+        <h4>Wat zit er in deze box?</h4>
+        <p>{{cocktailbox.description}}</p>
+        <p>Het enige wat jij nog moet doen is alle ingrediënten in het juiste glas over ijs uitschenken en genieten van een lekkere cocktail.</p>
+    </div>
+</div>
+<h5>{{cocktailbox.quote}}</h5>

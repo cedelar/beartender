@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div *ngFor="let box of cocktailboxes; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
+            <app-boxwrapper [cocktailbox]="box"></app-boxwrapper>
+        </div>
+    </body>
+</html>
