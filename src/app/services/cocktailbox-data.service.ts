@@ -10,7 +10,7 @@ export class CocktailboxDataService {
 
   constructor() { }
 
-  public get_cocktailboxes(): Cocktailbox[]{
+  get cocktailboxes(): Cocktailbox[]{
     return this._cocktailboxes;
   }
   

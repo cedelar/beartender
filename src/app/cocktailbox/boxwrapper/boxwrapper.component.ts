@@ -13,5 +13,4 @@ export class BoxwrapperComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Cocktails</h2>
+        <div class="grid-container">
+            <div class="grid-cell" *ngFor="let cocktail of cocktails;">
+                <app-cocktailwrapper [cocktail]="cocktail"></app-cocktailwrapper>
+            </div>
+        </div>
+        <h2>Mocktails</h2>
+        <div class="grid-container">
+            <div class="grid-cell" *ngFor="let mocktail of mocktails;">
+                <app-cocktailwrapper [cocktail]="mocktail"></app-cocktailwrapper>
+            </div>
+        </div>
+    </body>
+</html>
+

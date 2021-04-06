@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div *ngFor="let box of cocktailboxes; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
-            <app-boxwrapper [cocktailbox]="box"></app-boxwrapper>
+        <!-- <img class="bannerimage" src="assets/images/box_banner.png"> -->
+        <h2>Onze Boxen</h2>
+        <div class="contentbox">
+            <div *ngFor="let box of cocktailboxes; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
+                <app-boxwrapper [cocktailbox]="box"></app-boxwrapper>
+            </div>
         </div>
     </body>
 </html>

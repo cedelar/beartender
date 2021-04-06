@@ -1,21 +1,23 @@
-body{
-    background: #101010;
-    margin: 0px;
-    padding: 0px;
+body, html{
     height: 100vh;
     width: 100vw;
-}
-.message{
-    padding-top: 50px;
-    font-size: 50px;
-    color: #e7e7e7;
+    background-color: #101010;
+    font-size: 20pt;
     text-align: center;
-}
+  }
+
+.link {
+    color: lightblue;
+  }
 
 .image{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 30%;
+    width: 15%;
     padding-bottom: 50px;
+}
+
+h2{
+  padding-top: 20px;
 }

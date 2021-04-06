@@ -17,7 +17,7 @@ export class CocktailboxComponent implements OnInit {
   }
 
   get cocktailboxes(): Cocktailbox[]{
-    return this._cocktailboxDataService.get_cocktailboxes();
+    return this._cocktailboxDataService.cocktailboxes;
   }
-
+  
 }

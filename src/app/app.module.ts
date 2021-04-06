@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { CocktailboxModule } from './cocktailbox/cocktailbox.module';
 import { StaticModule } from './static/static.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CocktailModule } from './cocktail/cocktail.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CocktailboxModule,
-    StaticModule
+    StaticModule,
+    CocktailModule
   ],
   providers: [],
   bootstrap: [AppComponent]
