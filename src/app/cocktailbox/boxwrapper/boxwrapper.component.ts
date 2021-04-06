@@ -7,7 +7,7 @@ import { Cocktailbox } from 'src/app/model/cocktailbox.model';
   styleUrls: ['./boxwrapper.component.css']
 })
 export class BoxwrapperComponent implements OnInit {
-  @Input() cocktailbox : Cocktailbox | undefined;
+  @Input() cocktailbox : Cocktailbox;
 
   constructor() { }
 
