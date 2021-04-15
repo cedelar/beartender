@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { COCKTAILBOXES } from '../cocktailbox/mock-cocktailbox';
-import { Cocktailbox } from '../model/cocktailbox.model';
+import { Cocktailbox } from '../_model/cocktailbox.model';
 
 @Injectable({
   providedIn: 'root'

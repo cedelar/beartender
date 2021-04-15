@@ -27,3 +27,11 @@ a:hover {
     color: #e7e7e7;
     background: #1279be
 }
+
+.active{
+  display: initial;
+}
+
+.inactive{
+  display: none;
+}

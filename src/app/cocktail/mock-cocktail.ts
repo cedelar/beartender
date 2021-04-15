@@ -1,4 +1,4 @@
-import { Cocktail } from "../model/cocktail.model";
+import { Cocktail } from "../_model/cocktail.model";
 
 const JsonCocktails = [
     {

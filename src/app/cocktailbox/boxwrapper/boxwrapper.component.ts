@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Cocktailbox } from 'src/app/model/cocktailbox.model';
+import { Cocktailbox } from 'src/app/_model/cocktailbox.model';
 
 @Component({
   selector: 'app-boxwrapper',

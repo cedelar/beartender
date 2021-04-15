@@ -1,4 +1,4 @@
-import { FaqQuestion } from "src/app/model/faqquestion.model"
+import { FaqQuestion } from "src/app/_model/faqquestion.model"
 
 const JsonFaqQuestions = [
     {

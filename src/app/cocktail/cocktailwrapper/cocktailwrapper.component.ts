@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Cocktail } from 'src/app/model/cocktail.model';
+import { Cocktail } from 'src/app/_model/cocktail.model';
 
 @Component({
   selector: 'app-cocktailwrapper',

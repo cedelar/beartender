@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FaqQuestion } from '../model/faqquestion.model';
+import { FaqQuestion } from '../_model/faqquestion.model';
 import { FAQQUESTIONS } from '../static/faq/mock-faq';
 
 @Injectable({

@@ -1,4 +1,4 @@
-import {Cocktailbox} from '../model/cocktailbox.model';
+import {Cocktailbox} from '../_model/cocktailbox.model';
 
 const JsonCocktailboxes = [
     {

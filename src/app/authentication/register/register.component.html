@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Registreer</h2>
+        <br>
+            <form [formGroup]="newUser" (ngSubmit)="onSubmit()">
+                <table>
+                <tr>
+                    <td for="firstname">Voornaam: </td>
+                    <td><input 
+                        type="text" 
+                        aria-label="firstname"
+                        name="firstname"
+                        formControlName="firstname"
+                        [class.valid]="newUser.get('firstname').valid && newUser.get('firstname').touched"
+                        [class.invalid]="newUser.get('firstname').invalid && newUser.get('firstname').touched"
+                    ></td>
+                    <br>  
+                </tr>   
+                <tr>      
+                    <td for="lastname">Achternaam: </td>
+                    <td><input 
+                        type="text" 
+                        aria-label="lastname"
+                        name="lastname"
+                        formControlName="lastname"
+                        [class.valid]="newUser.get('lastname').valid && newUser.get('lastname').touched"
+                        [class.invalid]="newUser.get('lastname').invalid && newUser.get('lastname').touched"
+                    ></td>
+                    <br>
+                <tr>
+                    <td for="email">E-mail: </td>
+                    <td><input 
+                        type="text" 
+                        aria-label="email"
+                        name="email"
+                        formControlName="email"
+                        [class.valid]="newUser.get('email').valid && newUser.get('email').touched"
+                        [class.invalid]="newUser.get('email').invalid && newUser.get('email').touched"
+                    ></td>
+                    <br>
+                </tr>
+                <tr>
+                    <td for="adress">Adres: </td>
+                    <td><input 
+                    type="text" 
+                    aria-label="street"
+                    name="street"
+                    placeholder="Straat"
+                    formControlName="street"
+                    [class.valid]="newUser.get('street').valid && newUser.get('street').touched"
+                    [class.invalid]="newUser.get('street').invalid && newUser.get('street').touched"
+                    >
+                    <input 
+                    type="number" 
+                    aria-label="number"
+                    name="number"
+                    placeholder="Huisnummer"
+                    formControlName="number"
+                    [class.valid]="newUser.get('number').valid && newUser.get('number').touched"
+                    [class.invalid]="newUser.get('number').invalid && newUser.get('number').touched"
+                    ></td>
+                    <br>
+                </tr>
+                <tr>
+                    <td for="adress2"></td>
+                    <td><input 
+                    type="number" 
+                    aria-label="postcode"
+                    name="postcode"
+                    placeholder="Postcode"
+                    formControlName="postcode"
+                    [class.valid]="newUser.get('postcode').valid && newUser.get('postcode').touched"
+                    [class.invalid]="newUser.get('postcode').invalid && newUser.get('postcode').touched"
+                    >
+                    <input 
+                    type="text" 
+                    aria-label="city"
+                    name="city"
+                    placeholder="Gemeente"
+                    formControlName="city"
+                    [class.valid]="newUser.get('city').valid && newUser.get('city').touched"
+                    [class.invalid]="newUser.get('city').invalid && newUser.get('city').touched"
+                    ></td>
+                    <br>
+                </tr>
+                <br>
+                <tr formGroupName="passwordGroup">
+                    <td for="password">Wachtwoord: </td>
+                    <td><input 
+                        type="text" 
+                        aria-label="password"
+                        name="password"
+                        formControlName="password"
+                    ></td>
+                    <br>
+                </tr>
+                <tr formGroupName="passwordGroup">
+                    <td  for="cpassword">Herhaal Wachtwoord: </td>
+                    <td><input 
+                        type="text" 
+                        aria-label="cpassword"
+                        name="cpassword"
+                        formControlName="confirmPassword"
+                    ></td>
+                    <br>
+                </tr>
+            </table>
+            <br>
+            <button type="submit" [disabled]="newUser.invalid">Registreer</button>
+            </form>
+    </body>
+</html>

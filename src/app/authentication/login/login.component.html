@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Inloggen</h2>
+        <br>
+        <form [formGroup]="loginUser" (ngSubmit)="onSubmit()">
+            <table>
+            <tr>
+                <td for="email">E-mail: </td>
+                <td><input 
+                    type="text" 
+                    aria-label="email"
+                    name="email"
+                    formControlName="email"
+                    [class.valid]="loginUser.get('email').valid && loginUser.get('email').touched"
+                    [class.invalid]="loginUser.get('email').invalid && loginUser.get('email').touched"
+                ></td>
+                <br>  
+            </tr>   
+            <tr>      
+                <td for="password">Wachtwoord: </td>
+                <td><input 
+                    type="password" 
+                    aria-label="password"
+                    name="password"
+                    formControlName="password"
+                    [class.valid]="loginUser.get('password').valid && loginUser.get('password').touched"
+                    [class.invalid]="loginUser.get('password').invalid && loginUser.get('password').touched"
+                ></td>
+                <br>
+            <tr>
+            </table>
+            <br>
+            <button type="submit" [disabled]="loginUser.invalid">Inloggen</button>
+        </form>
+    </body>
+</html>

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './authentication/login/login.component';
+import { RegisterComponent } from './authentication/register/register.component';
 import { CocktailComponent } from './cocktail/cocktail/cocktail.component';
 
 import { CocktailboxComponent } from './cocktailbox/cocktailbox/cocktailbox.component';
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent},
   { path: 'faq', component: FaqComponent},
   { path: 'cocktaillist', component: CocktailComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent}
 ];

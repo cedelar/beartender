@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FaqQuestion } from 'src/app/model/faqquestion.model';
-import { FaqDataService } from 'src/app/services/faq-data.service';
+import { FaqQuestion } from 'src/app/_model/faqquestion.model';
+import { FaqDataService } from 'src/app/_services/faq-data.service';
 
 @Component({
   selector: 'app-faq',
