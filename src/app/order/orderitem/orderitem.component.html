@@ -1,0 +1,21 @@
+<h3>{{wrapper.title}}</h3>
+<p>{{wrapper.subtitle}}</p>
+<img class="image" src={{wrapper.imagelink}}>
+<br>
+<table>
+    <tr>
+        <td>
+            <label for="amount">Aantal: </label>
+        </td>
+        <td>
+            <button (click)="minAmount()" [disabled]="amount == 0">-</button>
+        </td>
+        <td>
+            <label>{{amount}}</label>
+        </td>
+        <td>
+            <button (click)="plusAmount()">+</button>
+        </td>
+    </tr>
+</table>
+<p> </p>

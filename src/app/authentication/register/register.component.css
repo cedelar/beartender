@@ -6,6 +6,10 @@ body, html{
   text-align: center;
 }
 
+h2{
+  padding-top: 20px;
+}
+
 form{
   margin: 0 auto;
   width: 720px;

@@ -9,6 +9,7 @@ import { StaticModule } from './static/static.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CocktailModule } from './cocktail/cocktail.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { OrderModule } from './order/order.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
     CocktailboxModule,
     StaticModule,
     CocktailModule,
-    AuthenticationModule
+    AuthenticationModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

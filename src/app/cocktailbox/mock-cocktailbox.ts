@@ -78,7 +78,8 @@ const JsonCocktailboxes = [
             'Park Avenue'
         ],
         quote: '‘Give me a drink that wakes me up but then f**ks me up’ -An unkown model somewhere in a bar'
-    },
+    }
+    /*,
     {
         name: 'Mocktails',
         subtitle: 'Lekkere non-alcoholische alternatieven aan €7 per mocktail',
@@ -94,7 +95,7 @@ const JsonCocktailboxes = [
             'Rosemary’s ginger ale'
         ],
         quote: '‘If the ambiance is right, you’ll get your high on a mocktail in a cocktail glass.’ -Tapan Ghosh'
-    }
+    }*/
 ];
 
 export const COCKTAILBOXES: Cocktailbox[] = JsonCocktailboxes.map(Cocktailbox.fromJSON);

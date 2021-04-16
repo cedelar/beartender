@@ -55,6 +55,7 @@
                     type="number" 
                     aria-label="number"
                     name="number"
+                    min="1"
                     placeholder="Huisnummer"
                     formControlName="number"
                     [class.valid]="newUser.get('number').valid && newUser.get('number').touched"
@@ -66,6 +67,7 @@
                     <td for="adress2"></td>
                     <td><input 
                     type="number" 
+                    min="1000"
                     aria-label="postcode"
                     name="postcode"
                     placeholder="Postcode"

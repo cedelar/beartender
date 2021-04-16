@@ -1,0 +1,27 @@
+<h2>Bestel</h2>
+<h3>Selecteer uw boxen...</h3>
+<div class="grid-container">
+    <div class="grid-cell" *ngFor="let wrapper of cocktailboxes;">
+        <app-orderitem [wrapper]="wrapper"></app-orderitem>
+    </div>
+</div>
+<h3>...en de inhoud ervan!</h3>
+<div class="grid-container">
+    <div class="grid-cell" *ngFor="let wrapper of cocktails;">
+        <app-orderitem [wrapper]="wrapper"></app-orderitem>
+    </div>
+</div>
+<div class="orderbar">
+    <table>
+        <tr>
+            <th>
+                <p>U koos </p>
+                <p>{{OrderedAmount}} / {{ToOrderAmount}}</p>
+                <p>cocktails</p>
+            </th>
+            <th>
+                <button (click)="onOrder()" [disabled]="ToOrderAmount !== OrderedAmount || OrderedAmount == 0">Bestel!</button>
+            </th>
+        </tr>
+    </table>
+</div>
