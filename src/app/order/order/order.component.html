@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <app-orderselect></app-orderselect>
+        <app-orderselect [class.inactive]="isConfirmState == true" [class.active]="isConfirmState == false"></app-orderselect>
+        <app-orderconfirm [class.inactive]="isConfirmState == false" [class.active]="isConfirmState == true"></app-orderconfirm>
     </body>
 </html>

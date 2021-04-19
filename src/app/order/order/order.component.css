@@ -20,3 +20,11 @@ button{
 button:hover{
     cursor:pointer;
 }
+
+.active{
+    display: initial;
+}
+  
+.inactive{
+    display: none;
+}

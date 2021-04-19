@@ -7,14 +7,18 @@ import { BehaviorSubject } from 'rxjs';
 export class OrderDataService {
   private _toOrderAmount$: BehaviorSubject<number>;
   private _orderedAmount$: BehaviorSubject<number>;
+  private _confirmationState$: BehaviorSubject<boolean>;
   private _boxAmountMap: Map<string, number>;
   private _cocktailAmountMap: Map<string, number>;
+  private _glassAmount: number;
   
   constructor() { 
     this._toOrderAmount$ = new BehaviorSubject<number>(0);
     this._orderedAmount$ = new BehaviorSubject<number>(0);
+    this._confirmationState$ = new BehaviorSubject<boolean>(false);
     this._boxAmountMap = new Map();
     this._cocktailAmountMap = new Map();
+    this._glassAmount = 0;
   }
 
   get toOrderAmount$(): BehaviorSubject<number> {
@@ -23,6 +27,30 @@ export class OrderDataService {
 
   get orderedAmount$(): BehaviorSubject<number> {
     return this._orderedAmount$;
+  }
+
+  get confirmationState$(): BehaviorSubject<boolean>{
+    return this._confirmationState$;
+  }
+
+  get boxAmountMap(): Map<string, number>{
+    return this._boxAmountMap;
+  }
+
+  get cocktailAmountMap(): Map<string, number>{
+    return this._cocktailAmountMap;
+  }
+
+  get glassAmount(): number{
+    return this._glassAmount;
+  }
+
+  set glassAmount(val: number){
+    this._glassAmount = val;
+  }
+
+  setConfirmationState$(val: boolean){
+    this._confirmationState$.next(val);
   }
 
   updateToOrderAmount(amount: number): void{

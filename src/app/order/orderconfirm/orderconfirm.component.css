@@ -1,0 +1,46 @@
+body, html{
+    width: 100vw;
+    background-color: #101010;
+    font-size: 20pt;
+    text-align: center;
+}
+
+h2{
+    padding-top: 20px;
+}
+
+button{
+    background-color: #1279be;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 32px;
+    font-size: 20px;
+}
+
+button:hover{
+    cursor:pointer;
+}
+
+.table{
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    /*border: 1px solid #dddddd;*/
+    text-align: left;
+    padding: 8px;
+  }
+
+.nameCol{
+    width: 20vw;
+}
+
+.amountCol{
+    width: 5vw;
+}
+
+.priceCol{
+    width: 10vw;
+}

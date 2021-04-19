@@ -85,7 +85,7 @@ const JsonMocktails = [
         imageLink: './assets/images/apple_cucumber_tonic.jpg'
     },
     {
-        name: 'Cranberry Thyme Sparkler',
+        name: 'Cranberry Thyme Sparkler (Mocktail)',
         description: 'Een zoete mocktail met huisgemaakte veenbessen-tijm siroop, limoensap en sprite.',
         imageLink: './assets/images/cranberry_thyme_sparkler_mock.jpg'
     },

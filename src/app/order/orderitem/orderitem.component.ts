@@ -19,14 +19,26 @@ export class OrderitemComponent implements OnInit {
   }
 
   get amount(): number{
-    return this._orderDataService.getValueFromMap(this.wrapper.title, this.wrapper.kind) / this.wrapper.amount;
+    if(this.wrapper.kind == "glas"){
+      return this._orderDataService.glassAmount;
+    }else{
+      return this._orderDataService.getValueFromMap(this.wrapper.title, this.wrapper.kind) / this.wrapper.amount;
+    }
   }
 
   plusAmount(){
-    this._orderDataService.updateAmountMap(this.wrapper.title, 1 * this.wrapper.amount, this.wrapper.kind);
+    if(this.wrapper.kind == "glas"){
+      this._orderDataService.glassAmount = this._orderDataService.glassAmount + 1;
+    }else{
+      this._orderDataService.updateAmountMap(this.wrapper.title, 1 * this.wrapper.amount, this.wrapper.kind);
+    }
   }
 
   minAmount(){
-    this._orderDataService.updateAmountMap(this.wrapper.title, -1 * this.wrapper.amount, this.wrapper.kind);
+    if(this.wrapper.kind == "glas"){
+      this._orderDataService.glassAmount = this._orderDataService.glassAmount - 1;
+    }else{
+      this._orderDataService.updateAmountMap(this.wrapper.title, -1 * this.wrapper.amount, this.wrapper.kind);
+    }
   }
 }

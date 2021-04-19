@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from 'src/app/authentication/login/login.component';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 import { CocktailDataService } from 'src/app/_services/cocktail-data.service';
 import { CocktailboxDataService } from 'src/app/_services/cocktailbox-data.service';
@@ -18,11 +19,9 @@ export class OrderselectComponent implements OnInit {
     private _orderDataService: OrderDataService,
     private _authService: AuthenticationService,
   ) { 
-    console.log("Const");
   }
 
   ngOnInit(): void {
-    console.log("Init");
   }
 
   get ToOrderAmount(): number{
@@ -47,8 +46,12 @@ export class OrderselectComponent implements OnInit {
       );
   }
 
+  get glasWrapper(): Datawrapper{
+    return new Datawrapper("Cocktailglas", "€ 2 huur + € 3 waarborg / st", "./assets/images/background_4.jpg", "glas", 0);
+  }
+
   onOrder(): void{
-    console.log("bestel!")
+    this._orderDataService.setConfirmationState$(true);
   }
 
 }

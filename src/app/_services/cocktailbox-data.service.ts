@@ -13,5 +13,14 @@ export class CocktailboxDataService {
   get cocktailboxes(): Cocktailbox[]{
     return this._cocktailboxes;
   }
+
+  getCocktailboxByName(name: string): Cocktailbox{
+    try{
+      return this.cocktailboxes.filter(c => c.name == name)[0];
+    }catch(e: any){
+      console.log("Error");
+      return null;
+    }
+  }
   
 }

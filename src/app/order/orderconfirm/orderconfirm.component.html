@@ -1,1 +1,48 @@
-<p>orderconfirm works!</p>
+<h2>Bestelconfirmatie</h2>
+<table class="table">
+    <tr>
+        <th class="nameCol">Je gekozen cocktailbox</th>
+        <th class="amountCol">Aantal</th>
+        <th class="priceCol">Prijs</th>
+    </tr>
+    <tr *ngFor="let box of boxAmountMap.entries();">
+        <td class="nameCol">{{box[0]}}</td>
+        <td class="amountCol">{{getBoxAmountByName(box[0])}}</td>
+        <td class="priceCol">€ {{getBoxPriceByName(box[0])}},00</td>
+    </tr>
+    <br>
+    <tr>
+        <th class="nameCol">Je gekozen cocktails</th>
+    </tr>
+    <tr *ngFor="let cocktail of cocktailAmountMap.entries();">
+        <td class="nameCol">{{cocktail[0]}}</td>
+        <td class="amountCol">{{cocktail[1]}}</td>
+    </tr>
+    <br>
+    <tr>
+        <th class="nameCol">Je gekozen extras</th>
+    </tr>
+    <tr >
+        <td class="nameCol">Cocktailglas</td>
+        <td class="amountCol">{{glassAmount}}</td>
+        <td class="priceCol">€ {{glassPrice}},00</td>
+    </tr>
+</table>
+
+<br>
+<label>Prijs van de boxen:</label>
+<label> € {{totalBoxPrice}}</label>
+<br>
+
+<label>Prijs van de extras:</label>
+<label> € {{extraPrice}}</label>
+<br>
+
+<label>Leverprijs:</label>
+<label> € {{transportPrice}}</label>
+<br>
+
+<label>Totaal:</label>
+<label> € {{totalPrice}}</label>
+<br>
+

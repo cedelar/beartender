@@ -19,4 +19,13 @@ export class CocktailDataService {
     return this._mocktails;
   }
 
+  getCocktailByName(name: string): Cocktail{
+    try{
+      return this.cocktails.concat(this.mocktails).filter(c => c.name == name)[0];
+    }catch(e: any){
+      console.log("Error");
+      return null;
+    }
+  }
+
 }
