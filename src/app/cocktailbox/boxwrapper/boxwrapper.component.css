@@ -2,6 +2,10 @@
   float: left;
   width: 50%;
 }
+
+img{
+  height: 30vh;
+}
   
 /* Clear floats after the columns */
 .row:after {

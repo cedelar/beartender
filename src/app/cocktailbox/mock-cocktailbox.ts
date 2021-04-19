@@ -7,7 +7,7 @@ const JsonCocktailboxes = [
         description: 'Jouw twee huisgemaakte cocktailmixen, twee rietjes en de nodige garnituren. Je wordt voorzien van een duidelijke beschrijving over de gekozen drankjes.',
         amount: 2,
         price: 20.0,
-        imageLink: './assets/images/logo.png',
+        imageLink: './assets/images/cocktailbox_2.jpg',
         choicetitle: 'Kies 2 cocktails – €20,00',
         choices: [
             'Dark ’n Stormy',
@@ -33,7 +33,7 @@ const JsonCocktailboxes = [
         description: 'Jouw vier huisgemaakte cocktailmixen, twee rietjes en de nodige garnituren. Je wordt voorzien van een duidelijke beschrijving over de gekozen drankjes.',
         amount: 4,
         price: 36.0,
-        imageLink: './assets/images/logo.png',
+        imageLink: './assets/images/cocktailbox_4.jpg',
         choicetitle: 'Kies 4 cocktails – €36,00',
         choices: [
             'Dark ’n Stormy',
@@ -59,7 +59,7 @@ const JsonCocktailboxes = [
         description: 'Jouw zes huisgemaakte cocktailmixen, twee rietjes en de nodige garnituren. Je wordt voorzien van een duidelijke beschrijving over de gekozen drankjes.',
         amount: 6,
         price: 53.0,
-        imageLink: './assets/images/logo.png',
+        imageLink: './assets/images/cocktailbox_6.jpg',
         choicetitle: 'Kies 6 cocktails – €53,00',
         choices: [
             'Dark ’n Stormy',
