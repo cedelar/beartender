@@ -1,4 +1,4 @@
-<h2>Bestelconfirmatie</h2>
+<h2>Bestelingssamenvatting</h2>
 <table class="table">
     <tr>
         <th class="nameCol">Je gekozen cocktailbox</th>
@@ -45,4 +45,36 @@
 <label>Totaal:</label>
 <label> € {{totalPrice}}</label>
 <br>
+<br>
 
+<label>Kies een aflevermanier: </label>
+<button (click)="onDelivery()" [disabled]="isDelivery == true">Levering</button>
+<button (click)="onTakeaway()" [disabled]="isDelivery == false">Afhalen</button>
+
+<div [class.inactive]="isDelivery == false" [class.active]="isDelivery == true">
+<h2>Leverinformatie</h2>
+
+<label>Leveradres: </label>
+<label>{{loggedInAdress}}</label>
+<br>
+
+<label>Leverdatum: </label>
+<input type="date" id="deliverdate">
+</div>
+
+<div [class.inactive]="isDelivery == true" [class.active]="isDelivery == false">
+<h2>Ophaalinformatie</h2>
+
+<label>Ophaaladres: </label>
+<label>Dam, 9170 Sint-Gillis-Waas</label>
+<br>
+
+<label>Ophaaldatum: </label>
+<input type="date" id="takeawaydate">
+</div>
+<br>
+<br>
+<button (click)="onConfirm()">Bevestig en bestel</button>
+<p id="errormessage" class="errormessage"></p>
+<br>
+<img class="image" src="assets/images/logo.png">

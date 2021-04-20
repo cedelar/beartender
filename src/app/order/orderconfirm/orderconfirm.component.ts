@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cocktail } from 'src/app/_model/cocktail.model';
 import { Cocktailbox } from 'src/app/_model/cocktailbox.model';
+import { Order } from 'src/app/_model/order.model';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 import { CocktailDataService } from 'src/app/_services/cocktail-data.service';
 import { CocktailboxDataService } from 'src/app/_services/cocktailbox-data.service';
@@ -13,15 +14,17 @@ import { OrderDataService } from 'src/app/_services/order-data.service';
 })
 export class OrderconfirmComponent implements OnInit {
   private readonly FREEDELIVERY : string[] = ["sint-gillis-waas", "de klinge", "meerdonk", "sint-pauwels", "kemzeke"];
+  private _isDelivery: boolean;
   
   constructor(
     private _orderDataService: OrderDataService,
     private _authService: AuthenticationService,
     private _cocktailboxDataService: CocktailboxDataService,
     private _cocktailDataService: CocktailDataService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
+    this._isDelivery = true;
   }
 
   get boxAmountMap(){
@@ -64,6 +67,30 @@ export class OrderconfirmComponent implements OnInit {
     return this.glassAmount * 5;
   }
 
+  get loggedInAdress(): string{
+    var loggedInUser = this._authService.user$.value;
+    return loggedInUser.street + " " + loggedInUser.number + ", " + loggedInUser.postcode + " " + loggedInUser.city;
+  }
+
+  get isDelivery(): boolean{
+    return this._isDelivery;
+  }
+
+  onDelivery(): void{
+    this._isDelivery = true;
+  }
+
+  onTakeaway(): void{
+    this._isDelivery = false;
+  }
+
+  onConfirm(): void{
+    var order = this.generateOrder()
+    if(order != null){
+      this._orderDataService.sendOrderToServer(order);
+    }
+  }
+
   getCocktailByName(name: string): Cocktail{
     return this._cocktailDataService.getCocktailByName(name);
   }
@@ -78,5 +105,36 @@ export class OrderconfirmComponent implements OnInit {
 
   getBoxPriceByName(name: string): number{
     return this.getCocktailboxByName(name).price * this.getBoxAmountByName(name);
+  }
+
+  private generateOrder(): Order{
+    var user = this._authService.user$.value;
+    var date;
+    var adress;
+    if(this.isDelivery){
+      date = (document.getElementById("deliverdate") as HTMLInputElement).value;
+      adress = user.street + " " + user.number + ", " + user.postcode + " " + user.city;
+    }else{
+      date = (document.getElementById("takeawaydate") as HTMLInputElement).value;
+      adress = "Dam, 9170 Sint-Gillis-Waas";
+    }
+
+    if(date != null && date != undefined && date != ""){
+      document.getElementById("errormessage").textContent = ""
+      return new Order(
+        user.email,
+        this.isDelivery,
+        user.street + " " + user.number + ", " + user.postcode + " " + user.city,
+        date,
+        this.boxAmountMap,
+        this.cocktailAmountMap, 
+        this.glassAmount,
+        this.totalPrice
+      );
+    }else{
+      console.log("Insert a date!");
+      document.getElementById("errormessage").textContent = "Vul de gewenste datum in!"
+      return null;
+    }
   }
 }

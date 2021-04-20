@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Order } from '../_model/order.model';
+import { User } from '../_model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -112,6 +114,32 @@ export class OrderDataService {
     }else{
       return 0;
     }
+  }
+
+  sendOrderToServer(order: Order){
+    //TODO
+    console.log(order.cocktailMap.size);
+    console.log(JSON.stringify(order, this.replacer));
+  }
+
+  private replacer(key: any, value: any) {
+    if(value instanceof Map) {
+      return {
+        dataType: 'Map',
+        value: Array.from(value.entries()), 
+      };
+    } else {
+      return value;
+    }
+  }
+
+  private reviver(key: any, value: any) {
+    if(typeof value === 'object' && value !== null) {
+      if (value.dataType === 'Map') {
+        return new Map(value.value);
+      }
+    }
+    return value;
   }
 }
 
