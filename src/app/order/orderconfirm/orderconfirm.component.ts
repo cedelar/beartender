@@ -44,7 +44,7 @@ export class OrderconfirmComponent implements OnInit {
   }
 
   get transportPrice(): number{
-    if(this.totalBoxPrice > 35.00 && this.FREEDELIVERY.includes(this._authService.user$.value.city.toLowerCase())){
+    if((this.totalBoxPrice > 35.00 && this.FREEDELIVERY.includes(this._authService.user$.value.city.toLowerCase())) || !this.isDelivery){
       return 0.00;
     }else{
       return 4.95;
@@ -119,9 +119,18 @@ export class OrderconfirmComponent implements OnInit {
       adress = "Dam, 9170 Sint-Gillis-Waas";
     }
 
-    if(date != null && date != undefined && date != ""){
+    if(date == null || date == undefined || date == ""){
+      console.log("Insert a date!");
+      document.getElementById("errormessage").textContent = "Vul de gewenste datum in!"
+      return null;
+    }else if(!this.validDate(date)){
+      console.log("Insert a date in the future!");
+      document.getElementById("errormessage").textContent = "Vul een datum in de toekomst in!"
+      return null;
+    }else{
       document.getElementById("errormessage").textContent = ""
       return new Order(
+        1, //TODO
         user.email,
         this.isDelivery,
         user.street + " " + user.number + ", " + user.postcode + " " + user.city,
@@ -129,12 +138,24 @@ export class OrderconfirmComponent implements OnInit {
         this.boxAmountMap,
         this.cocktailAmountMap, 
         this.glassAmount,
-        this.totalPrice
+        this.totalPrice, 
+        false
       );
-    }else{
-      console.log("Insert a date!");
-      document.getElementById("errormessage").textContent = "Vul de gewenste datum in!"
-      return null;
     }
+  
+  }
+
+  private validDate(date: string): boolean{
+    var today: Date = new Date();
+    var splitDate: string[] = date.split("-");
+    if( 
+      parseInt(splitDate[2]) >= today.getDate() && 
+      parseInt(splitDate[1]) >= today.getMonth() &&
+      parseInt(splitDate[0]) >= today.getFullYear()
+      ){
+        return true;
+      }else{
+        return false;
+      }
   }
 }

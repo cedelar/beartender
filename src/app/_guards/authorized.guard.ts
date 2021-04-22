@@ -8,18 +8,19 @@ import { AuthenticationService } from '../_services/authentication.service';
 })
 export class AuthorizedGuard implements CanActivate {
   constructor(
-    private authService: AuthenticationService,
-    private router: Router
+    private _authService: AuthenticationService,
+    private _router: Router
   ) {}
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.authService.user$.getValue()) {
+    if (this._authService.user$.getValue()) {
       return true;
     }
-    this.authService.redirectUrl = state.url;
-    this.router.navigate(['/auth/login']);
+    this._authService.redirectUrl = state.url;
+    this._router.navigate(['/auth/login']);
     return false;
   }
   

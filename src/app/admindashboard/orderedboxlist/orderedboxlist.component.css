@@ -1,0 +1,19 @@
+body, html{
+    width: 100vw;
+    height: 100vh;
+    background-color: #101010;
+    font-size: 20pt;
+    text-align: center;
+}
+
+h2{
+    padding-top: 20px;
+}
+
+.even{
+    background: #303030;
+}
+
+.odd{
+    background: #101010;
+}
