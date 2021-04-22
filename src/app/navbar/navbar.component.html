@@ -1,10 +1,11 @@
-<a class="leftoutline" href="/home">Home</a>
-<a class="leftoutline" href="/cocktailbox">Cocktailbox</a>
-<a class="leftoutline" href="/cocktaillist">Cocktails</a>
-<a class="leftoutline" href="/faq">FAQ</a>
-<a class="leftoutline" href="/contact">Contact</a>
-<a class="leftoutline" href="/order" [class.inactive]="isLoggedIn == false" [class.active]="isLoggedIn == true">Bestel</a>
-<a class="rightoutline" href="/register" [class.inactive]="isLoggedIn == true" [class.active]="isLoggedIn == false">Registreer</a>
-<a class="rightoutline" href="/login" [class.inactive]="isLoggedIn == true" [class.active]="isLoggedIn == false">Login</a>
+<a class="leftoutline" [routerLink]="['/home']">Home</a>
+<a class="leftoutline" [routerLink]="['/cocktailbox']">Cocktailbox</a>
+<a class="leftoutline" [routerLink]="['/cocktaillist']">Cocktails</a>
+<a class="leftoutline" [routerLink]="['/faq']">FAQ</a>
+<a class="leftoutline" [routerLink]="['/contact']">Contact</a>
+<a class="leftoutline" [routerLink]="['/order']" [class.inactive]="isLoggedIn == false" [class.active]="isLoggedIn == true">Bestel</a>
+<a class="leftoutline" [routerLink]="['/admin']" [class.inactive]="isAdmin == false" [class.active]="isAdmin == true">Admin</a>
+<a class="rightoutline" [routerLink]="['/auth/register']" [class.inactive]="isLoggedIn == true" [class.active]="isLoggedIn == false">Registreer</a>
+<a class="rightoutline" [routerLink]="['/auth/login']" [class.inactive]="isLoggedIn == true" [class.active]="isLoggedIn == false">Login</a>
 <p class="rightoutline" [class.inactive]="isLoggedIn == false" [class.active]="isLoggedIn == true">Welkom {{username}}!</p>
 <a class="rightoutline" [class.inactive]="isLoggedIn == false" [class.active]="isLoggedIn == true" (click)="onLogout()">Logout</a>

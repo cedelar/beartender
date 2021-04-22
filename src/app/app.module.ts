@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CocktailModule } from './cocktail/cocktail.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { OrderModule } from './order/order.module';
+import { AdmindashboardModule } from './admindashboard/admindashboard.module';
 
 @NgModule({
   declarations: [
@@ -18,14 +19,15 @@ import { OrderModule } from './order/order.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     CocktailboxModule,
     StaticModule,
     CocktailModule,
     AuthenticationModule,
-    OrderModule
+    OrderModule,
+    AdmindashboardModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

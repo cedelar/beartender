@@ -8,16 +8,25 @@ import { AuthenticationService } from '../_services/authentication.service';
 })
 export class NavbarComponent implements OnInit {
   public isLoggedIn: boolean;
+  public isAdmin: boolean;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private _authService: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.authService.user$.subscribe(
+    this._authService.user$.subscribe(
       user => {
         if(user == null){
           this.isLoggedIn = false;
+          this.isAdmin = false;
         }else{
           this.isLoggedIn = true;
+          if(user.isAdmin){
+            console.log("true");
+            this.isAdmin = true;
+          }else{
+            console.log("false");
+            this.isAdmin = false;
+          }
         }
       }
     );
@@ -25,13 +34,13 @@ export class NavbarComponent implements OnInit {
 
   get username(): string{
     try{
-      return this.authService.user$.value.firstname;
+      return this._authService.user$.value.firstname;
     }catch (error){
       return "";
     }
   }
 
   onLogout(): void{
-    this.authService.logout();
+    this._authService.logout();
   }
 }

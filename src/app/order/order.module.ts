@@ -5,6 +5,11 @@ import { OrderselectComponent } from './orderselect/orderselect.component';
 import { OrderitemComponent } from './orderitem/orderitem.component';
 import { OrderconfirmComponent } from './orderconfirm/orderconfirm.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', component: OrderComponent},
+]
 
 @NgModule({
   declarations: [
@@ -15,7 +20,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild(routes)
   ],
   exports: [
     OrderComponent
