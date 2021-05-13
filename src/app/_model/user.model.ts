@@ -6,7 +6,7 @@ interface UserJson{
     number: string,
     postcode: string,
     city: string, 
-    isAdmin: boolean
+    role: string
 }
 
 export class User{
@@ -18,7 +18,7 @@ export class User{
         private _number: string,
         private _postcode: string,
         private _city: string, 
-        private _isAdmin: boolean
+        private _role: string
     ){}
 
     get firstname(): string {
@@ -49,8 +49,8 @@ export class User{
         return this._city;
     }
 
-    get isAdmin(): boolean {
-        return this._isAdmin;
+    get role(): string {
+        return this._role;
     }
 
     toString(): string{
@@ -59,7 +59,7 @@ export class User{
             "\nlastname: " + this._lastname + 
             "\nemail: " + this._email +
             "\nadress: " + this._street + " " + this._number + ", " + this._postcode + " " + this._city + 
-            "\nAdmin?: " + this._isAdmin;
+            "\nrole: " + this._role;
     }
 
     static fromJSON(json: UserJson): User{
@@ -71,7 +71,7 @@ export class User{
             json.number,
             json.postcode,
             json.city, 
-            json.isAdmin
+            json.role
         );
     }
 }

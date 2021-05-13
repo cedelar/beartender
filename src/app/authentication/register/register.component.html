@@ -111,5 +111,6 @@
             <br>
             <button type="submit" [disabled]="newUser.invalid">Registreer</button>
             </form>
+            <p class = error *ngIf="errormessage">{{errormessage}}</p>
     </body>
 </html>

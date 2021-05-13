@@ -6,7 +6,7 @@ interface CocktailboxJson {
     price: number,
     imageLink: string,
     choicetitle: string,
-    choices: string[],
+    choices: string,
     quote: string
 }
 
@@ -62,6 +62,8 @@ export class Cocktailbox{
     }
 
     static fromJSON(json: CocktailboxJson): Cocktailbox{
+        let jsonChoice: string = json.choices;
+        let splitChoices: string[] = jsonChoice.split("---");
         return new Cocktailbox(
             json.name,
             json.subtitle,
@@ -70,7 +72,7 @@ export class Cocktailbox{
             json.price,
             json.imageLink,
             json.choicetitle,
-            json.choices,
+            splitChoices,
             json.quote
         );
     }

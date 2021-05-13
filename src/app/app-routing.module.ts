@@ -1,12 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './admindashboard/dashboard/dashboard.component';
-import { LoginComponent } from './authentication/login/login.component';
-import { RegisterComponent } from './authentication/register/register.component';
-import { CocktailComponent } from './cocktail/cocktail/cocktail.component';
 
-import { CocktailboxComponent } from './cocktailbox/cocktailbox/cocktailbox.component';
-import { OrderComponent } from './order/order/order.component';
 import { ContactComponent } from './static/contact/contact.component';
 import { FaqComponent } from './static/faq/faq.component';
 import { HomeComponent } from './static/home/home.component';

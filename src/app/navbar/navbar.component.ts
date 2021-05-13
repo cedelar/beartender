@@ -20,11 +20,9 @@ export class NavbarComponent implements OnInit {
           this.isAdmin = false;
         }else{
           this.isLoggedIn = true;
-          if(user.isAdmin){
-            console.log("true");
+          if(user.role == "admin" && this._authService.checkTokenValidity()){
             this.isAdmin = true;
           }else{
-            console.log("false");
             this.isAdmin = false;
           }
         }

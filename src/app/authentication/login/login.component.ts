@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
@@ -10,6 +11,7 @@ import { AuthenticationService } from 'src/app/_services/authentication.service'
 })
 export class LoginComponent implements OnInit {
   public loginUser: FormGroup;
+  public errormessage: string = "";
   
   constructor(    
     private authService: AuthenticationService,
@@ -40,6 +42,9 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/home']);
           }
         }
+      },
+      (err: HttpErrorResponse) => {
+          this.errormessage = `Er was een probleem tijdens het inloggen, probeer het later opnieuw`;
       }
     );
   }

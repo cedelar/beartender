@@ -32,3 +32,6 @@ h2{
     padding-top: 5vh;
     padding-bottom: 15vh;
 }
+.error{
+    color: red;
+  }

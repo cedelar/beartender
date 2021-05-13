@@ -33,5 +33,6 @@
             <br>
             <button type="submit" [disabled]="loginUser.invalid">Inloggen</button>
         </form>
+        <p class = error *ngIf="errormessage">{{errormessage}}</p>
     </body>
 </html>

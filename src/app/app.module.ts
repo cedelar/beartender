@@ -11,6 +11,7 @@ import { CocktailModule } from './cocktail/cocktail.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { OrderModule } from './order/order.module';
 import { AdmindashboardModule } from './admindashboard/admindashboard.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AdmindashboardModule } from './admindashboard/admindashboard.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     CocktailboxModule,
     StaticModule,
     CocktailModule,

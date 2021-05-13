@@ -27,6 +27,10 @@ h2{
     font-size: 30px;
  }
 
+ .error{
+  color: red;
+}
+
  
 @media only screen and (max-width: 1200px) {
     .grid-container {

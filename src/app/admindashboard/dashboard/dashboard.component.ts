@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this._authService.user$.subscribe(
       user => {
-        if(user == null || !user.isAdmin){
+        if(user == null || user.role != "admin"){
           this.router.navigate(['/home']);
         }
       }

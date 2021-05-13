@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FaqQuestion } from 'src/app/_model/faqquestion.model';
 import { FaqDataService } from 'src/app/_services/faq-data.service';
@@ -8,15 +9,21 @@ import { FaqDataService } from 'src/app/_services/faq-data.service';
   styleUrls: ['./faq.component.css']
 })
 export class FaqComponent implements OnInit {
+  public faqQuestions: FaqQuestion[];
+  public errormessage: string = "";
 
   constructor(
     private _faqQuestionDataService: FaqDataService
   ) { }
 
   ngOnInit(): void {
-  }
-
-  get faqQuestions(): FaqQuestion[]{
-    return this._faqQuestionDataService.faqQuestions;
+    this._faqQuestionDataService.faqQuestions$.subscribe(
+      v => {
+        this.faqQuestions = v;
+      },
+      (err: HttpErrorResponse) => {
+          this.errormessage = `Er was een probleem tijdens het laden van de FAQ, probeer het later opnieuw`;
+      }
+    );
   }
 }

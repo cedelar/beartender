@@ -15,7 +15,7 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      if (this._authService.user$.value.isAdmin) {
+      if (this._authService.user$.value.role == "admin" && this._authService.checkTokenValidity()) {
         return true;
       }else{
         this._router.navigate(['/home']);

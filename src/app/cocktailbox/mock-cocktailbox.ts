@@ -9,22 +9,9 @@ const JsonCocktailboxes = [
         price: 20.0,
         imageLink: './assets/images/cocktailbox_2.jpg',
         choicetitle: 'Kies 2 cocktails – €20,00',
-        choices: [
-            'Dark ’n Stormy',
-            'Paloma',
-            'Cranberry Thyme Sparkler',
-            'Fernet Con Coca',
-            'Passionfruit Mojito',
-            'El Diablo',
-            'Long Island Iced Tea',
-            'Sex on The Beach',
-            'Cosmopolitan',
-            'Amaretto Sour',
-            'Pornstar Martini',
-            'Espresso martini',
-            'Manhattan',
-            'Park Avenue'
-        ],
+        choices: 
+            'Dark ’n Stormy---Paloma---Cranberry Thyme Sparkler---Fernet Con Coca---Passionfruit Mojito---El Diablo---Long Island Iced Tea---Sex on The Beach---Cosmopolitan---Amaretto Sour---Pornstar Martini---Espresso martini---Manhattan---Park Avenue'
+        ,
         quote: '‘If you start sweet, then you’ve got somewhere to go’ -Bill Withers'
     },
     {
@@ -35,22 +22,8 @@ const JsonCocktailboxes = [
         price: 36.0,
         imageLink: './assets/images/cocktailbox_4.jpg',
         choicetitle: 'Kies 4 cocktails – €36,00',
-        choices: [
-            'Dark ’n Stormy',
-            'Paloma',
-            'Cranberry Thyme Sparkler',
-            'Fernet Con Coca',
-            'Passionfruit Mojito',
-            'El Diablo',
-            'Long Island Iced Tea',
-            'Sex on The Beach',
-            'Cosmopolitan',
-            'Amaretto Sour',
-            'Pornstar Martini',
-            'Espresso martini',
-            'Manhattan',
-            'Park Avenue'
-        ],
+        choices:'Dark ’n Stormy---Paloma---Cranberry Thyme Sparkler---Fernet Con Coca---Passionfruit Mojito---El Diablo---Long Island Iced Tea---Sex on The Beach---Cosmopolitan---Amaretto Sour---Pornstar Martini---Espresso martini---Manhattan---Park Avenue'
+        ,
         quote: '‘The problem with the world is that everyone is a few drinks behind’ -Humphrey Bogart'
     },
     {
@@ -61,22 +34,8 @@ const JsonCocktailboxes = [
         price: 53.0,
         imageLink: './assets/images/cocktailbox_6.jpg',
         choicetitle: 'Kies 6 cocktails – €53,00',
-        choices: [
-            'Dark ’n Stormy',
-            'Paloma',
-            'Cranberry Thyme Sparkler',
-            'Fernet Con Coca',
-            'Passionfruit Mojito',
-            'El Diablo',
-            'Long Island Iced Tea',
-            'Sex on The Beach',
-            'Cosmopolitan',
-            'Amaretto Sour',
-            'Pornstar Martini',
-            'Espresso martini',
-            'Manhattan',
-            'Park Avenue'
-        ],
+        choices: 'Dark ’n Stormy---Paloma---Cranberry Thyme Sparkler---Fernet Con Coca---Passionfruit Mojito---El Diablo---Long Island Iced Tea---Sex on The Beach---Cosmopolitan---Amaretto Sour---Pornstar Martini---Espresso martini---Manhattan---Park Avenue'
+        ,
         quote: '‘Give me a drink that wakes me up but then f**ks me up’ -An unkown model somewhere in a bar'
     }
     /*,

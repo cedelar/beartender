@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { 
   AbstractControl, 
@@ -18,6 +19,7 @@ import { AuthenticationService } from 'src/app/_services/authentication.service'
 })
 export class RegisterComponent implements OnInit {
   public newUser: FormGroup;
+  public errormessage: string = "";
 
   constructor(
     private authService: AuthenticationService,
@@ -32,7 +34,6 @@ export class RegisterComponent implements OnInit {
       email: [
         '',
         [Validators.required, Validators.email],
-        //serverSideValidateUsername(this.authService.checkUserNameAvailability),
       ],
       street: ['', [Validators.required, Validators.pattern(/[^0-9]+/)]],
       number: ['', [Validators.required, Validators.pattern(/[0-9]+/)]],
@@ -55,6 +56,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    this.authService.
+    checkUserNameAvailability(this.newUser.value.email)
+    .subscribe(
+      (val) => {
+        if(val){
+          this.errormessage = `Dit emailadres is al in gebruik, probeer een ander`;
+        }
+      }
+    )
+    
     this.authService
     .register(
       this.newUser.value.firstname,
@@ -76,7 +87,12 @@ export class RegisterComponent implements OnInit {
             this.router.navigate(['/home']);
           }
         }
-      }
+      },
+      (err: HttpErrorResponse) => {
+        if(this.errormessage == ""){
+          this.errormessage = `Er was een probleem tijdens het registreren, probeer het opnieuw`;
+        }
+    }
     );
   }
 }
@@ -87,19 +103,4 @@ function comparePasswords(control: AbstractControl): ValidationErrors {
   return password.value === confirmPassword.value
     ? null
     : { passwordsDiffer: true };
-}
-
-function serverSideValidateUsername(
-  checkAvailabilityFn: (n: string) => Observable<boolean>
-): ValidatorFn {
-  return (control: AbstractControl): Observable<ValidationErrors> => {
-    return checkAvailabilityFn(control.value).pipe(
-      map((available) => {
-        if (available) {
-          return null;
-        }
-        return { userAlreadyExists: true };
-      })
-    );
-  };
 }
