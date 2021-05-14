@@ -73,8 +73,10 @@
 <input type="date" id="takeawaydate">
 </div>
 <br>
+<p *ngIf="message">{{message}}</p>
+<p class = errormessage *ngIf="errormessage">{{errormessage}}</p>
 <br>
-<button (click)="onConfirm()">Bevestig en bestel</button>
+<button (click)="onConfirm()" [disabled]="isOrdered == true">Bevestig en bestel</button>
 <p id="errormessage" class="errormessage"></p>
 <br>
 <img class="image" src="assets/images/logo.png">

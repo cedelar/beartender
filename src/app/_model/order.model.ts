@@ -1,11 +1,13 @@
+import { MapParser } from "../_support/mapParser";
+
 interface OrderJson{
     id: number,
     userEmail: string,
     isDelivery: boolean,
     adress: string,
     date: string,
-    boxMap: Map<string, number>,
-    cocktailMap: Map<string, number>,
+    boxMap: string,
+    cocktailMap: string,
     glassAmount: number,
     price: number,
     isPaid: boolean
@@ -65,6 +67,22 @@ export class Order{
         return this._isPaid;
     }
 
+    get boxesAsString(): string{
+        let r: string = "";
+        for (let [key, value] of this._boxMap) {
+            r += value + " in \"" + key + "\" boxen\n";        
+        }
+        return r;
+    }
+
+    get cocktailsAsString(): string{
+        let r: string = "";
+        for (let [key, value] of this._cocktailMap) {
+            r += value + "x " + key + "\n";        
+        }
+        return r;
+    }
+
     static fromJSON(json: OrderJson): Order{
         return new Order(
             json.id,
@@ -72,20 +90,12 @@ export class Order{
             json.isDelivery,
             json.adress,
             json.date,
-            json.boxMap,
-            json.cocktailMap,
+            MapParser.recreateMap(json.boxMap),
+            MapParser.recreateMap(json.cocktailMap),
             json.glassAmount,
             json.price,
             json.isPaid
         );
     }
 
-    private static reviver(key: any, value: any) {
-        if(typeof value === 'object' && value !== null) {
-          if (value.dataType === 'Map') {
-            return new Map(value.value);
-          }
-        }
-        return value;
-      }
 }

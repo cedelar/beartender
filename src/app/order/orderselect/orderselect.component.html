@@ -1,13 +1,14 @@
 <h2>Bestel</h2>
 <h3>Selecteer uw boxen...</h3>
 <div class="grid-container">
-    <div class="grid-cell" *ngFor="let wrapper of cocktailboxes;">
+    <div class="grid-cell" *ngFor="let wrapper of cocktailboxesData;">
         <app-orderitem [wrapper]="wrapper"></app-orderitem>
     </div>
 </div>
+<p class = error *ngIf="errormessage">{{errormessage}}</p>
 <h3>...en de inhoud ervan!</h3>
 <div class="grid-container">
-    <div class="grid-cell" *ngFor="let wrapper of cocktails;">
+    <div class="grid-cell" *ngFor="let wrapper of cocktailsData;">
         <app-orderitem [wrapper]="wrapper"></app-orderitem>
     </div>
 </div>

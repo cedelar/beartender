@@ -12,6 +12,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { OrderModule } from './order/order.module';
 import { AdmindashboardModule } from './admindashboard/admindashboard.module';
 import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './_interceptors';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     AdmindashboardModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

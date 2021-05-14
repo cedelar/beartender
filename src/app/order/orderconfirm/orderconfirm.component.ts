@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Cocktail } from 'src/app/_model/cocktail.model';
 import { Cocktailbox } from 'src/app/_model/cocktailbox.model';
@@ -15,6 +16,9 @@ import { OrderDataService } from 'src/app/_services/order-data.service';
 export class OrderconfirmComponent implements OnInit {
   private readonly FREEDELIVERY : string[] = ["sint-gillis-waas", "de klinge", "meerdonk", "sint-pauwels", "kemzeke"];
   private _isDelivery: boolean;
+  private _isOrdered: boolean;
+  public message: string = "";
+  public errormessage: string = "";
   
   constructor(
     private _orderDataService: OrderDataService,
@@ -25,6 +29,7 @@ export class OrderconfirmComponent implements OnInit {
 
   ngOnInit(): void {
     this._isDelivery = true;
+    this._isOrdered = false;
   }
 
   get boxAmountMap(){
@@ -76,6 +81,10 @@ export class OrderconfirmComponent implements OnInit {
     return this._isDelivery;
   }
 
+  get isOrdered(): boolean{
+    return this._isOrdered;
+  }
+
   onDelivery(): void{
     this._isDelivery = true;
   }
@@ -87,7 +96,22 @@ export class OrderconfirmComponent implements OnInit {
   onConfirm(): void{
     var order = this.generateOrder()
     if(order != null){
-      this._orderDataService.sendOrderToServer(order);
+      this._orderDataService
+      .sendOrderToServer(order)
+      .subscribe(
+        b => {
+          if(b){
+            this.message = "Uw bestelling werd succesvol geplaatst, u mag dit scherm nu sluiten"
+            this.errormessage = "";
+            this._isOrdered = true;
+          }else{
+            this.errormessage = "U bent niet correct ingelogd, log opnieuw in en probeer opnieuw"
+          }
+        },
+        (err: HttpErrorResponse) => {
+            this.errormessage = `Er ging iets mis, probeer het later opnieuw`;
+        }
+      );
     }
   }
 
@@ -130,7 +154,7 @@ export class OrderconfirmComponent implements OnInit {
     }else{
       document.getElementById("errormessage").textContent = ""
       return new Order(
-        1, //TODO
+        1,
         user.email,
         this.isDelivery,
         user.street + " " + user.number + ", " + user.postcode + " " + user.city,
@@ -142,7 +166,7 @@ export class OrderconfirmComponent implements OnInit {
         false
       );
     }
-  
+   
   }
 
   private validDate(date: string): boolean{

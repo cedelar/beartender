@@ -1,5 +1,27 @@
 <body>
     <h2>Bestellingen</h2>
     <br>
-    <p>//TODO</p>
+    <tr> 
+        <th>Datum</th>
+        <th>Klant</th>
+        <th>Adres</th>
+        <th>Levering</th>
+        <th>Bestelde cocktails</th>
+        <th>In boxen</th>
+        <th>Glazen</th>
+        <th>Prijs</th>
+        <th>Betaald?</th>
+    </tr>  
+    <tr *ngFor="let order of orders; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }"> 
+        <td>{{order.date}}</td>
+        <td>{{order.userEmail}}</td>
+        <td>{{order.adress}}</td>
+        <td>{{order.isDelivery}}</td>
+        <td><pre>{{order.cocktailsAsString}}</pre></td>
+        <td><pre>{{order.boxesAsString}}</pre></td>
+        <td>{{order.glassAmount}}x</td>
+        <td>€{{order.price}}</td>
+        <td>{{order.isPaid}}</td>
+    </tr>  
+    <p class = errormessage *ngIf="errormessage">{{errormessage}}</p>
 </body>

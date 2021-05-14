@@ -1,6 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Order } from '../_model/order.model';
+import { MapParser } from '../_support/mapParser';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +17,7 @@ export class OrderDataService {
   private _cocktailAmountMap: Map<string, number>;
   private _glassAmount: number;
   
-  constructor() { 
+  constructor(private http: HttpClient) { 
     this._toOrderAmount$ = new BehaviorSubject<number>(0);
     this._orderedAmount$ = new BehaviorSubject<number>(0);
     this._confirmationState$ = new BehaviorSubject<boolean>(false);
@@ -115,30 +119,27 @@ export class OrderDataService {
     }
   }
 
-  sendOrderToServer(order: Order){
-    //TODO
-    console.log(order.cocktailMap.size);
-    console.log(JSON.stringify(order, this.replacer));
-  }
-
-  private replacer(key: any, value: any) {
-    if(value instanceof Map) {
-      return {
-        dataType: 'Map',
-        value: Array.from(value.entries()), 
-      };
-    } else {
-      return value;
-    }
-  }
-
-  private reviver(key: any, value: any) {
-    if(typeof value === 'object' && value !== null) {
-      if (value.dataType === 'Map') {
-        return new Map(value.value);
-      }
-    }
-    return value;
+  sendOrderToServer(order: Order): Observable<boolean>{
+    return this.http
+    .post(
+      `${environment.apiUrl}/Order/order`,
+      {
+        userEmail: order.userEmail,
+        isDelivery: order.isDelivery,
+        adress: order.adress,
+        date: order.date,
+        boxMap: MapParser.mapToString(order.boxMap),
+        cocktailMap: MapParser.mapToString(order.cocktailMap),
+        glassAmount: "" + order.glassAmount,
+        price: "" + order.price,
+        isPaid: order.isPaid
+      },
+      { responseType: 'text' }
+    ).pipe(
+      map((r: any) => {
+        return r;
+      })
+    )
   }
 }
 

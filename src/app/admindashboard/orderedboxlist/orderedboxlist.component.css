@@ -1,6 +1,5 @@
 body, html{
     width: 100vw;
-    height: 100vh;
     background-color: #101010;
     font-size: 20pt;
     text-align: center;
@@ -17,3 +16,30 @@ h2{
 .odd{
     background: #101010;
 }
+
+.errormessage{
+    color: red;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th {
+    border-left: 1px solid #616161;
+    border-top: 1px solid #616161;
+    text-align: left;
+    padding: 8px;
+  }
+  td {
+    border-left: 1px solid #616161;
+    text-align: left;
+    padding: 15px;
+    font-size: 20px;
+  }
+  pre{
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 20px;
+  }

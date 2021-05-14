@@ -10,13 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class FaqDataService {
-  private _faqQuestions = FAQQUESTIONS;
-
   constructor(private http: HttpClient) { }
-
-  get faqQuestions(): FaqQuestion[]{
-    return this._faqQuestions;
-  }
 
   get faqQuestions$(): Observable<FaqQuestion[]>{
     return this.http.get(`${environment.apiUrl}/Data/getFaqquestions`).pipe(
