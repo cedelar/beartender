@@ -1,0 +1,39 @@
+[
+    {
+        "name": "Just the two of us",
+        "subtitle": "Maak een keuze van 2 cocktails uit ons assortiment.",
+        "description": "Jouw twee huisgemaakte cocktailmixen, twee rietjes en de nodige garnituren. Je wordt voorzien van een duidelijke beschrijving over de gekozen drankjes.",
+        "amount": 2,
+        "price": 20.0,
+        "imageLink": "./assets/images/cocktailbox_2.jpg",
+        "choiceTitle": "Kies 2 cocktails – €20,00",
+        "choices": 
+            "Dark ’n Stormy---Paloma---Cranberry Thyme Sparkler---Fernet Con Coca---Passionfruit Mojito---El Diablo---Long Island Iced Tea---Sex on The Beach---Cosmopolitan---Amaretto Sour---Pornstar Martini---Espresso martini---Manhattan---Park Avenue"
+        ,
+        "quote": "‘If you start sweet, then you’ve got somewhere to go’ -Bill Withers"
+    },
+    {
+        "name": "The fab four",
+        "subtitle": "Maak een keuze van 4 cocktails uit ons assortiment.",
+        "description": "Jouw vier huisgemaakte cocktailmixen, twee rietjes en de nodige garnituren. Je wordt voorzien van een duidelijke beschrijving over de gekozen drankjes.",
+        "amount": 4,
+        "price": 36.0,
+        "imageLink": "./assets/images/cocktailbox_4.jpg",
+        "choiceTitle": "Kies 4 cocktails – €36,00",
+        "choices":"Dark ’n Stormy---Paloma---Cranberry Thyme Sparkler---Fernet Con Coca---Passionfruit Mojito---El Diablo---Long Island Iced Tea---Sex on The Beach---Cosmopolitan---Amaretto Sour---Pornstar Martini---Espresso martini---Manhattan---Park Avenue"
+        ,
+        "quote": "‘The problem with the world is that everyone is a few drinks behind’ -Humphrey Bogart"
+    },
+    {
+        "name": "Let’s get sixy",
+        "subtitle": "Maak een keuze van 6 cocktails uit ons assortiment.",
+        "description": "Jouw zes huisgemaakte cocktailmixen, twee rietjes en de nodige garnituren. Je wordt voorzien van een duidelijke beschrijving over de gekozen drankjes.",
+        "amount": 6,
+        "price": 53.0,
+        "imageLink": "./assets/images/cocktailbox_6.jpg",
+        "choiceTitle": "Kies 6 cocktails – €53,00",
+        "choices": "Dark ’n Stormy---Paloma---Cranberry Thyme Sparkler---Fernet Con Coca---Passionfruit Mojito---El Diablo---Long Island Iced Tea---Sex on The Beach---Cosmopolitan---Amaretto Sour---Pornstar Martini---Espresso martini---Manhattan---Park Avenue"
+        ,
+        "quote": "‘Give me a drink that wakes me up but then f**ks me up’ -An unkown model somewhere in a bar"
+    }
+]

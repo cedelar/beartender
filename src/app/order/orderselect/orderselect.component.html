@@ -1,14 +1,14 @@
 <h2>Bestel</h2>
 <h3>Selecteer uw boxen...</h3>
 <div class="grid-container">
-    <div class="grid-cell" *ngFor="let wrapper of cocktailboxesData;">
+    <div class="grid-cell" *ngFor="let wrapper of cocktailboxesData;" data-cy=box>
         <app-orderitem [wrapper]="wrapper"></app-orderitem>
     </div>
 </div>
-<p class = error *ngIf="errormessage">{{errormessage}}</p>
+<p class = error *ngIf="errormessage" data-cy=error>{{errormessage}}</p>
 <h3>...en de inhoud ervan!</h3>
 <div class="grid-container">
-    <div class="grid-cell" *ngFor="let wrapper of cocktailsData;">
+    <div class="grid-cell" *ngFor="let wrapper of cocktailsData;" data-cy=cocktailbox>
         <app-orderitem [wrapper]="wrapper"></app-orderitem>
     </div>
 </div>
@@ -24,11 +24,11 @@
         <tr>
             <th>
                 <p>U koos </p>
-                <p>{{OrderedAmount}} / {{ToOrderAmount}}</p>
+                <p data-cy=amountlabel>{{OrderedAmount}} / {{ToOrderAmount}}</p>
                 <p>cocktails</p>
             </th>
             <th>
-                <button (click)="onOrder()" [disabled]="ToOrderAmount !== OrderedAmount || OrderedAmount == 0">Bestel!</button>
+                <button (click)="onOrder()" [disabled]="ToOrderAmount !== OrderedAmount || OrderedAmount == 0" data-cy=confirmbutton>Bestel!</button>
             </th>
         </tr>
     </table>

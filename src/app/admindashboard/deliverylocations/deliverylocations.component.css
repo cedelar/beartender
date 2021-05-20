@@ -1,0 +1,15 @@
+body{
+    height: 80vh;
+    font-size: 20pt;
+}
+
+agm-map {
+    height: 70vh;
+    width: 97vw;
+    padding: 0px;
+    margin: 0px;
+}
+
+h2{
+    padding-top: 20px;
+}

@@ -1,0 +1,34 @@
+[
+    {
+        "question": "Is het ijs inbegrepen in de box?",
+        "answer":"Neen, om logistieke redenen is het moeilijk om ijs te vervoeren. Zorg er dus zeker voor dat je thuis genoeg ijs hebt, want het is essentieel voor een cocktail."
+    },
+    {
+        "question": "Ben ik verplicht om glazen te bestellen?",
+        "answer":"Neen, bij elke box zijn glazen optioneel. Wij bieden de glazen wel aan omdat we van mening zijn dat een cocktail in een stijlvol glas moet worden gedronken. Per glas betaal je 2 euro gebruikskosten en 3 euro waarborg. Na gebruik worden de glazen terug opgehaald en ontvang je de waarborg terug."
+    },
+    {
+        "question": "Wanneer worden de glazen terug opgehaald?",
+        "answer":"Stuur ons een berichtje als je de glazen niet meer nodig hebt, dan kunnen we verder de ophaling bespreken."
+    },
+    {
+        "question": "Hoe lang zijn de cocktails houdbaar?",
+        "answer":"Onze huisgemaakte cocktailmixen en garnituur zijn bedoeld voor onmiddellijke consumptie. Ze kunnen max. 1 dag bewaard worden in de ijskast."
+    },
+    {
+        "question": "Ik heb een allergie, wat moet ik doen?",
+        "answer":"Heb je een allergie voor bepaalde producten? Laat het ons zeker weten, zodat we voor jou een lekkere cocktail kunnen maken zonder kans op allergische reacties."
+    },
+    {
+        "question": "Ik kan niet betalen via een QR-code.",
+        "answer":"Geen enkel probleem. Je kan ook steeds overschrijven of cash betalen."
+    },
+    {
+        "question": "Mag ik cash betalen?",
+        "answer":"Onze voorkeur gaat naar een cashless betaalmethode. Mocht dit om bepaalde redenen toch niet lukken, dan kunnen we cash aannemen."
+    },
+    {
+        "question": "Wat gebeurt er met mijn gegevens?",
+        "answer":"Wij respecteren je privacy. Je persoonsgegevens worden gebruikt voor het afleveren van de door jouw gekozen producten, de eventuele terugbetaling van waarborgen en voor de contactopname in geval van wijzigingen. Je gegevens worden max. twee jaar bewaard in ons klantenbestand, maar worden nooit doorgegeven aan derden."
+    }
+]

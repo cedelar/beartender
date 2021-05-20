@@ -3,12 +3,12 @@
     <body>
         <h2>Faq</h2>
         <div *ngFor="let question of faqQuestions; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
-            <div class="questionbox">
+            <div class="questionbox" data-cy=question>
                 <h4>{{question.question}}</h4>
                 <p>{{question.answer}}</p>
             </div>
         </div>
-        <p class = error *ngIf="errormessage">{{errormessage}}</p>
+        <p class = error *ngIf="errormessage" data-cy=error>{{errormessage}}</p>
         <h3 class="bottommessage">Heb je toch nog vragen aarzel dan niet om ons te contacteren!</h3>
     </body>
 </html> 

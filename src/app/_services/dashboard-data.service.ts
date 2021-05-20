@@ -9,13 +9,23 @@ import { Order } from '../_model/order.model';
   providedIn: 'root'
 })
 export class DashboardDataService {
-
+  public dateOffset: number;
+  private readonly APIKEY : string = 'AIzaSyB4kLjsfmWm8VZlVckOxJVq2gjS5irIKi0';
+  
   constructor(private http: HttpClient) { 
-
+    this.dateOffset = 2;
   }
 
   get orders$(): Observable<Order[]>{
     return this.http.get(`${environment.apiUrl}/Order/getOrders`).pipe(
+      tap(console.log),
+      catchError(this.handleError),
+      map((list: any[]): Order[] => list.map(Order.fromJSON))
+    );
+  }
+
+  get ordersByDateoffset$(): Observable<Order[]>{
+    return this.http.get(`${environment.apiUrl}/Order/getOrdersByDate/${this.dateOffset}`).pipe(
       tap(console.log),
       catchError(this.handleError),
       map((list: any[]): Order[] => list.map(Order.fromJSON))

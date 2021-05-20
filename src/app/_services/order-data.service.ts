@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Order } from '../_model/order.model';
 import { MapParser } from '../_support/mapParser';
@@ -16,7 +16,9 @@ export class OrderDataService {
   private _boxAmountMap: Map<string, number>;
   private _cocktailAmountMap: Map<string, number>;
   private _glassAmount: number;
-  
+  private readonly POSITIONSTACKAPIKEY: string = "37067020c14efea3b459766bc260c536";
+  private readonly POSITIONSTACKURL: string = "http://api.positionstack.com/v1/";
+
   constructor(private http: HttpClient) { 
     this._toOrderAmount$ = new BehaviorSubject<number>(0);
     this._orderedAmount$ = new BehaviorSubject<number>(0);
@@ -132,14 +134,40 @@ export class OrderDataService {
         cocktailMap: MapParser.mapToString(order.cocktailMap),
         glassAmount: "" + order.glassAmount,
         price: "" + order.price,
-        isPaid: order.isPaid
+        isPaid: order.isPaid,
+        lattitude: "" + order.lattitude,
+        longitude: "" + order.longitude
       },
       { responseType: 'text' }
     ).pipe(
       map((r: any) => {
+        console.log("Response:" + r)
         return r;
       })
     )
+  }
+
+  getCoordinates$(adress : string): Observable<number[]>{
+    return this.http.get(
+      `${this.POSITIONSTACKURL}forward?access_key=${this.POSITIONSTACKAPIKEY}&query=${adress}&limit=1&output=json`
+        ).pipe(
+          tap(console.log),
+          catchError(this.handleError),
+          map((json: any): number[] => [json.data[0].latitude, json.data[0].longitude])
+    );
+  }
+
+  handleError(err: any): Observable<never> {
+    let errorMessage: string;
+    if (err.error instanceof ErrorEvent) {
+      errorMessage = `An error occurred: ${err.error.message}`;
+    } else if (err instanceof HttpErrorResponse) {
+      console.log(err);
+      errorMessage = `'${err.status} ${err.statusText}' when accessing '${err.url}'`;
+    } else {
+      errorMessage = err;
+    }
+    return throwError(errorMessage);
   }
 }
 

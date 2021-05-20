@@ -2,12 +2,12 @@
 <html>
     <body>
         <!-- <img class="bannerimage" src="assets/images/box_banner.png"> -->
-        <h2>Onze Boxen</h2>
+        <h2 data-cy="title">Onze Boxen</h2>
         <div class="contentbox">
-            <div *ngFor="let box of cocktailboxes; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
+            <div data-cy="boxcount" *ngFor="let box of cocktailboxes; let even = even; let odd = odd" [ngClass]="{ odd: odd, even: even }">
                 <app-boxwrapper [cocktailbox]="box"></app-boxwrapper>
             </div>
         </div>
-        <p class = error *ngIf="errormessage">{{errormessage}}</p>
+        <p class = error *ngIf="errormessage" data-cy="error">{{errormessage}}</p>
     </body>
 </html>

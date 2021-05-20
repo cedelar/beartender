@@ -93,13 +93,14 @@ export class OrderconfirmComponent implements OnInit {
     this._isDelivery = false;
   }
 
-  onConfirm(): void{
+  async onConfirm(): Promise<void>{
     var order = this.generateOrder()
     if(order != null){
       this._orderDataService
-      .sendOrderToServer(order)
+      .sendOrderToServer(await order)
       .subscribe(
         b => {
+          console.log("Response:" + b + ", " + typeof b);
           if(b){
             this.message = "Uw bestelling werd succesvol geplaatst, u mag dit scherm nu sluiten"
             this.errormessage = "";
@@ -131,18 +132,29 @@ export class OrderconfirmComponent implements OnInit {
     return this.getCocktailboxByName(name).price * this.getBoxAmountByName(name);
   }
 
-  private generateOrder(): Order{
+  private async generateOrder(): Promise<Order>{
     var user = this._authService.user$.value;
     var date;
     var adress;
+    var lat;
+    var lng;
     if(this.isDelivery){
       date = (document.getElementById("deliverdate") as HTMLInputElement).value;
       adress = user.street + " " + user.number + ", " + user.postcode + " " + user.city;
+      await this._orderDataService.getCoordinates$(user.street + "%20" + user.number + ",%20" + user.postcode + "%20" + user.city).toPromise().then(
+        c => { 
+          console.log(c);
+          lat = c[0];
+          lng = c[1];
+          console.log("Coord received");
+        }
+      );
     }else{
       date = (document.getElementById("takeawaydate") as HTMLInputElement).value;
       adress = "Dam, 9170 Sint-Gillis-Waas";
+      lat = 51.218797
+      lng = 4.125177
     }
-
     if(date == null || date == undefined || date == ""){
       console.log("Insert a date!");
       document.getElementById("errormessage").textContent = "Vul de gewenste datum in!"
@@ -163,7 +175,9 @@ export class OrderconfirmComponent implements OnInit {
         this.cocktailAmountMap, 
         this.glassAmount,
         this.totalPrice, 
-        false
+        false,
+        lat,
+        lng
       );
     }
    

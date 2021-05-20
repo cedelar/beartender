@@ -5,7 +5,7 @@
         <th class="amountCol">Aantal</th>
         <th class="priceCol">Prijs</th>
     </tr>
-    <tr *ngFor="let box of boxAmountMap.entries();">
+    <tr *ngFor="let box of boxAmountMap.entries();" data-cy=boxconfirm>
         <td class="nameCol">{{box[0]}}</td>
         <td class="amountCol">{{getBoxAmountByName(box[0])}}</td>
         <td class="priceCol">€ {{getBoxPriceByName(box[0])}},00</td>
@@ -14,7 +14,7 @@
     <tr>
         <th class="nameCol">Je gekozen cocktails</th>
     </tr>
-    <tr *ngFor="let cocktail of cocktailAmountMap.entries();">
+    <tr *ngFor="let cocktail of cocktailAmountMap.entries();" data-cy=cocktailconfirm>
         <td class="nameCol">{{cocktail[0]}}</td>
         <td class="amountCol">{{cocktail[1]}}</td>
     </tr>
@@ -31,19 +31,19 @@
 
 <br>
 <label>Prijs van de boxen:</label>
-<label> € {{totalBoxPrice}}</label>
+<label data-cy=boxprice> € {{totalBoxPrice}}</label>
 <br>
 
 <label>Prijs van de extras:</label>
-<label> € {{extraPrice}}</label>
+<label data-cy=extraprice> € {{extraPrice}}</label>
 <br>
 
 <label>Leverprijs:</label>
-<label> € {{transportPrice}}</label>
+<label data-cy=transportprice> € {{transportPrice}}</label>
 <br>
 
 <label>Totaal:</label>
-<label> € {{totalPrice}}</label>
+<label data-cy=totalprice> € {{totalPrice}}</label>
 <br>
 <br>
 
@@ -76,8 +76,8 @@
 <p *ngIf="message">{{message}}</p>
 <p class = errormessage *ngIf="errormessage">{{errormessage}}</p>
 <br>
-<button (click)="onConfirm()" [disabled]="isOrdered == true">Bevestig en bestel</button>
-<p id="errormessage" class="errormessage"></p>
+<button (click)="onConfirm()" [disabled]="isOrdered == true" data-cy=orderbutton>Bevestig en bestel</button>
+<p id="errormessage" class="errormessage" data-cy=error></p>
 <br>
 <img class="image" src="assets/images/logo.png">
 

@@ -10,7 +10,9 @@ interface OrderJson{
     cocktailMap: string,
     glassAmount: number,
     price: number,
-    isPaid: boolean
+    isPaid: boolean,
+    lattitude: number,
+    longitude: number
 }
 
 export class Order{
@@ -24,7 +26,9 @@ export class Order{
         private _cocktailMap: Map<string, number>,
         private _glassAmount: number,
         private _price: number,
-        private _isPaid: boolean 
+        private _isPaid: boolean,
+        private _lattitude: number,
+        private _longitude: number
     ){}
 
     get id(): number{
@@ -67,10 +71,18 @@ export class Order{
         return this._isPaid;
     }
 
+    get lattitude(): number{
+        return this._lattitude;
+    }
+
+    get longitude(): number{
+        return this._longitude;
+    }
+
     get boxesAsString(): string{
         let r: string = "";
         for (let [key, value] of this._boxMap) {
-            r += value + " in \"" + key + "\" boxen\n";        
+            r += value + " in \"" + key + "\"\n";        
         }
         return r;
     }
@@ -94,7 +106,9 @@ export class Order{
             MapParser.recreateMap(json.cocktailMap),
             json.glassAmount,
             json.price,
-            json.isPaid
+            json.isPaid,
+            json.lattitude,
+            json.longitude
         );
     }
 

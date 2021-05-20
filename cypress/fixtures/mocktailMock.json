@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Apple Cucumber Tonic",
+        "description": "Een variant op de klassieke gin & tonic met huisgemaakte appel-komkommer siroop, limoensap en tonic.",
+        "imageLink": "./assets/images/apple_cucumber_tonic.jpg"
+    },
+    {
+        "name": "Cranberry Thyme Sparkler (Mocktail)",
+        "description": "Een zoete mocktail met huisgemaakte veenbessen-tijm siroop, limoensap en sprite.",
+        "imageLink": "./assets/images/cranberry_thyme_sparkler_mock.jpg"
+    },
+    {
+        "name": "Virgin Mojito",
+        "description": "Iedereen kent de mojito. Ook de virgin mojito is in opmars. Deze mocktail bevat limoensap, gembersiroop, agavesiroop, munt en bruiswater.",
+        "imageLink": "./assets/images/virgin_mojito.jpg"
+    },
+    {
+        "name": "Rosemary’s Ginger Ale",
+        "description": "De naam zegt het zelf. Een verfrissend drankje op basis van honing-rozemarijn siroop, citroensap, bitters en ginger ale.",
+        "imageLink": "./assets/images/rosemarys_ginger_ale.jpg"
+    }
+]

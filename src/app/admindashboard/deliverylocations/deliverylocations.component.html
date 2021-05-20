@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Leverlocaties</h2>
+        <agm-map [fitBounds]="true">
+            <div *ngFor="let order of orders;">
+                <agm-marker [latitude]="order.lattitude" [longitude]="order.longitude" [agmFitBounds]="true">           
+                </agm-marker>
+            </div>
+        </agm-map>
+    </body>
+</html>

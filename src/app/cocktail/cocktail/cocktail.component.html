@@ -3,17 +3,17 @@
     <body>
         <h2>Cocktails</h2>
         <div class="grid-container">
-            <div class="grid-cell" *ngFor="let cocktail of cocktails;">
+            <div class="grid-cell" *ngFor="let cocktail of cocktails;" data-cy="cocktailbox">
                 <app-cocktailwrapper [cocktail]="cocktail"></app-cocktailwrapper>
             </div>
         </div>
         <h2>Mocktails</h2>
         <div class="grid-container">
-            <div class="grid-cell" *ngFor="let mocktail of mocktails;">
+            <div class="grid-cell" *ngFor="let mocktail of mocktails;" data-cy="mocktailbox">
                 <app-cocktailwrapper [cocktail]="mocktail"></app-cocktailwrapper>
             </div>
         </div>
-        <p class = error *ngIf="errormessage">{{errormessage}}</p>
+        <p class = error *ngIf="errormessage" data-cy=error>{{errormessage}}</p>
     </body>
 </html>
 

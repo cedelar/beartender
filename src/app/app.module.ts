@@ -30,7 +30,7 @@ import { httpInterceptorProviders } from './_interceptors';
     AuthenticationModule,
     OrderModule,
     AdmindashboardModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
