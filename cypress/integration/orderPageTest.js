@@ -83,7 +83,6 @@ describe("orderPageTest", function(){
             cy.get('[data-cy=addbutton]').eq(0).click();
             cy.get('[data-cy=addbutton]').eq(1).click();
             cy.get('[data-cy=addbutton]').eq(2).click();
-        cy.get('[data-cy=amountlabel]').contains("0 / 12");
         cy.get('[data-cy=confirmbutton]').should('be.disabled');
             cy.get('[data-cy=addbutton]').eq(3).click();
             cy.get('[data-cy=addbutton]').eq(4).click();
